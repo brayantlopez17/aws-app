@@ -3,15 +3,18 @@ version: 1.0
 # The instance configuration
 instance_configuration:
   runtime: python3
-  instance_type: F1.micro  # Choose an instance type that suits your application's needs
+
 
 # The build configuration
 build:
   runtime: python3
-  build_command: |
-    pip install -r requirements.txt
-    python manage.py collectstatic --noinput
-  start_command: python manage.py runserver 0.0.0.0:8000
+  build_command: pip install -r requirements.txt
+
+run:
+  runtime-version: 3.11
+  command: sh startup.sh
+  network:
+    port: 8000
 
 # # The environment configuration
 # environment:
