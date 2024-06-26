@@ -1,11 +1,16 @@
 version: 1.0
-runtime: python3
+
+# The instance configuration
+runtime: python311
+
+
+# The build configuration
 build:
   commands:
     build:
+      - python -m pip install --upgrade pip
       - pip install -r requirements.txt
-run:
-  runtime-version: 3.8.16
-  command: sh startup.sh
-  network:
-    port: 8000
+    post-build:
+      - python manage.py collectstatic --noinput
+      - gunicorn myproject.wsgi:application --bind
+
