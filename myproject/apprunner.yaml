@@ -1,20 +1,18 @@
 version: 1.0
 
 # The instance configuration
-instance_configuration:
-  runtime: python3
+runtime: python3.11
 
 
 # The build configuration
 build:
-  runtime: python3
-  build_command: pip install -r requirements.txt
+  commands:
+    build:
+      - python -m pip install --upgrade pip
+      - pip install -r requirements.txt
+    post_build:
+      - sh startup.sh
 
-run:
-  runtime-version: 3.11
-  command: sh startup.sh
-  network:
-    port: 8000
 
 # # The environment configuration
 # environment:
