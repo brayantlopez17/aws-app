@@ -10,7 +10,7 @@ build:
     build:
       - python -m pip install --upgrade pip
       - pip install -r requirements.txt
-    post_build:
+    post-build:
       - sh startup.sh
 
 
