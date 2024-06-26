@@ -13,18 +13,18 @@ build:
     python manage.py collectstatic --noinput
   start_command: python manage.py runserver 0.0.0.0:8000
 
-# The environment configuration
-environment:
-  variables:
-    DJANGO_SETTINGS_MODULE: myproject.settings
-    DEBUG: 'False'
-    ALLOWED_HOSTS: '.awsapprunner.com'
+# # The environment configuration
+# environment:
+#   variables:
+#     DJANGO_SETTINGS_MODULE: myproject.settings
+#     DEBUG: 'False'
+#     ALLOWED_HOSTS: '.awsapprunner.com'
 
-# Health check configuration
-health_check:
-  protocol: HTTP
-  path: /health/
-  interval: 30
-  timeout: 5
-  healthy_threshold: 3
-  unhealthy_threshold: 3
+# # Health check configuration
+# health_check:
+#   protocol: HTTP
+#   path: /health/
+#   interval: 30
+#   timeout: 5
+#   healthy_threshold: 3
+#   unhealthy_threshold: 3
